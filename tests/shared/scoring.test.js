@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BASE_POINTS, LEVEL_MULTIPLIER, scoreAnswer, STREAK_BONUS, STREAK_THRESHOLD } from "../../src/shared/scoring.js";
+import { BASE_POINTS, LEVEL_MULTIPLIER, scoreAnswer, STREAK_BONUS, STREAK_THRESHOLD } from "../../shared/scoring.js";
 
 describe("scoreAnswer", () => {
   it("awards 0 points and resets streak on an incorrect answer", () => {

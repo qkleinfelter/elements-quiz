@@ -96,13 +96,20 @@ export function whatOrigin(el, pool, random = Math.random) {
   });
 }
 
+const SPECIMEN_PROMPTS = [
+  "Which element renders like this?",
+  "This is a live specimen. Which element produced it?",
+  "Identify the element behind this rendered output.",
+];
+
 /**
  * "Identify this rendered element" - supports both choice and text mode.
- * Requires el.demo (a trusted, hard-coded markup snippet).
+ * Requires el.demo (a trusted, hard-coded markup snippet). Prompt wording is picked
+ * at random from a small pool so repeated specimen questions don't all read identically.
  */
 export function identifySpecimen(el, pool, mode, random = Math.random) {
   if (!el.demo) return null;
-  const prompt = "Which element renders like this?";
+  const prompt = SPECIMEN_PROMPTS[Math.floor(random() * SPECIMEN_PROMPTS.length)];
   if (mode === "text") {
     return buildTextQuestion({
       prompt,

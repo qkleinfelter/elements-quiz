@@ -1,6 +1,6 @@
-import { isCorrectTypedAnswer } from "../shared/answerMatch.js";
-import { buildRound } from "../shared/quiz.js";
-import { scoreAnswer } from "../shared/scoring.js";
+import { isCorrectTypedAnswer } from "../../../shared/answerMatch.js";
+import { buildRound } from "../../../shared/quiz.js";
+import { scoreAnswer } from "../../../shared/scoring.js";
 import { maybeSaveHighScore } from "./storage.js";
 
 /**

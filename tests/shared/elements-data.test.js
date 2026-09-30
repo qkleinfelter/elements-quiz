@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { elements } from "../../src/shared/data/elements.js";
+import { elements } from "../../shared/data/elements.js";
 
 const VALID_DIFFICULTIES = ["easy", "medium", "hard"];
 const VALID_STATUSES = ["obsolete", "deprecated", "non-standard", "removed", "still-valid"];
@@ -41,6 +41,22 @@ describe("elements data", () => {
     for (const difficulty of VALID_DIFFICULTIES) {
       const count = elements.filter((el) => el.difficulty === difficulty).length;
       expect(count).toBeGreaterThanOrEqual(4);
+    }
+  });
+
+  // `origin` is legitimately categorical (many elements really did ship together in the
+  // same spec/browser), so it's expected to repeat. `summary`, `tag`, and `replacement`
+  // are meant to be element-specific statements, so an exact duplicate there is a content
+  // bug (e.g. copy-pasted text) rather than a historical fact - this guards against those
+  // recurring, since whatDidItDo/whatReplacedIt distractors are only as good as this data.
+  it.each(["summary", "tag", "replacement"])("has no duplicate %s values across different elements", (field) => {
+    const seen = new Map();
+    for (const el of elements) {
+      const value = el[field];
+      if (value == null) continue;
+      const owner = seen.get(value);
+      expect(owner, `"${value}" is used as ${field} for both ${owner} and ${el.id}`).toBeUndefined();
+      seen.set(value, el.id);
     }
   });
 });

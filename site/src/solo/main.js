@@ -1,4 +1,4 @@
-import { elements } from "../shared/data/elements.js";
+import { elements } from "../../../shared/data/elements.js";
 import { QuizState } from "./state.js";
 import { Timer } from "./timer.js";
 import { renderQuestionScreen, updateCountdown } from "./ui/questionScreen.js";

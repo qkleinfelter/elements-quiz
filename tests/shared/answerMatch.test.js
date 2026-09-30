@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isCorrectTypedAnswer, normalizeAnswer } from "../../src/shared/answerMatch.js";
+import { isCorrectTypedAnswer, normalizeAnswer } from "../../shared/answerMatch.js";
 
 describe("normalizeAnswer", () => {
   it("lowercases and trims", () => {

@@ -1,4 +1,4 @@
-import { encodeServerMessage } from "../shared/protocol.js";
+import { encodeServerMessage } from "../../../shared/protocol.js";
 
 const INITIAL_BACKOFF_MS = 500;
 const MAX_BACKOFF_MS = 8000;

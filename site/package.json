@@ -1,0 +1,17 @@
+{
+  "name": "elements-quiz-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static Solo + Live client for Tag, You're Obsolete, hosted as an assets-only Cloudflare Worker.",
+  "scripts": {
+    "dev": "cf dev",
+    "build": "cf build",
+    "deploy": "cf deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.3",
+    "cf": "1.0.0-beta.7",
+    "vite": "^8.3.1"
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { encodeServerMessage, MAX_MESSAGE_BYTES, parseClientMessage } from "../../src/shared/protocol.js";
+import { encodeServerMessage, MAX_MESSAGE_BYTES, parseClientMessage } from "../../shared/protocol.js";
 
 describe("parseClientMessage", () => {
   it("accepts a well-formed host.hello message", () => {

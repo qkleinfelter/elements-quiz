@@ -1,8 +1,8 @@
 import { DurableObject } from "cloudflare:workers";
-import { isCorrectTypedAnswer } from "../shared/answerMatch.js";
-import { encodeServerMessage, parseClientMessage } from "../shared/protocol.js";
-import { buildRound } from "../shared/quiz.js";
-import { scoreAnswer } from "../shared/scoring.js";
+import { isCorrectTypedAnswer } from "../../shared/answerMatch.js";
+import { encodeServerMessage, parseClientMessage } from "../../shared/protocol.js";
+import { buildRound } from "../../shared/quiz.js";
+import { scoreAnswer } from "../../shared/scoring.js";
 
 const MAX_PLAYERS = 100;
 const ANSWER_GRACE_MS = 500;

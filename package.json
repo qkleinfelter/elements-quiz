@@ -4,18 +4,19 @@
   "private": true,
   "type": "module",
   "description": "Tag, You're Obsolete - a quiz on obscure and deprecated HTML elements, with Solo and Kahoot-style Live modes.",
+  "workspaces": ["site", "worker"],
   "scripts": {
-    "dev": "cf dev",
-    "build": "cf build",
-    "deploy": "cf deploy",
+    "site:dev": "npm run dev --workspace site",
+    "site:build": "npm run build --workspace site",
+    "site:deploy": "npm run deploy --workspace site",
+    "worker:dev": "npm run dev --workspace worker",
+    "worker:build": "npm run build --workspace worker",
+    "worker:deploy": "npm run deploy --workspace worker",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.62.3",
     "@cloudflare/vitest-pool-workers": "^0.22.0",
-    "cf": "1.0.0-beta.7",
-    "vite": "^8.3.1",
     "vitest": "^4.1.11"
   }
 }

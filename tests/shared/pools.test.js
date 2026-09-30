@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { inputModeForLevel, LEVELS, poolForLevel } from "../../src/shared/pools.js";
+import { inputModeForLevel, LEVELS, poolForLevel } from "../../shared/pools.js";
 
 const elements = [
   { id: "a", difficulty: "easy" },

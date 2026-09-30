@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { customQuestions, customQuestionsForLevel } from "../../src/shared/data/custom-questions.js";
+import { customQuestions, customQuestionsForLevel } from "../../shared/data/custom-questions.js";
 
 describe("customQuestionsForLevel", () => {
   it("never returns a question whose mode doesn't match the level's input mode", () => {

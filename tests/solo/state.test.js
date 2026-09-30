@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { elements } from "../../src/shared/data/elements.js";
-import { QuizState } from "../../src/solo/state.js";
+import { elements } from "../../shared/data/elements.js";
+import { QuizState } from "../../site/src/solo/state.js";
 
 // storage.js falls back to an in-memory Map when localStorage is unavailable (as in
 // plain vitest/node), so high scores persist across calls within a single test run

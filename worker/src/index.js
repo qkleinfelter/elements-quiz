@@ -1,4 +1,4 @@
-import { elements } from "../shared/data/elements.js";
+import { elements } from "../../shared/data/elements.js";
 
 const PIN_LENGTH = 6;
 const PIN_MAX_ATTEMPTS = 5;
@@ -86,7 +86,10 @@ export default {
       return handleGameWebSocket(request, env, wsMatch[1]);
     }
 
-    return env.ASSETS.fetch(request);
+    // This Worker only ever receives /api/* (see worker/cloudflare.config.ts's route);
+    // everything else is served directly by the elements-quiz-site Worker's static
+    // assets, with no invocation of this script at all.
+    return new Response("Not found", { status: 404 });
   },
 };
 

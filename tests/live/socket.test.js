@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { LiveSocket } from "../../src/live/socket.js";
+import { LiveSocket } from "../../site/src/live/socket.js";
 
 // A minimal fake WebSocket: supports addEventListener/removeEventListener, readyState,
 // send, and close, plus test-only hooks to simulate the connection actually opening.

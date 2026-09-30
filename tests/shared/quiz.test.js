@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { elements } from "../../src/shared/data/elements.js";
-import { poolForLevel } from "../../src/shared/pools.js";
-import { buildRound, toPublicQuestion } from "../../src/shared/quiz.js";
+import { elements } from "../../shared/data/elements.js";
+import { poolForLevel } from "../../shared/pools.js";
+import { buildRound, toPublicQuestion } from "../../shared/quiz.js";
 
 describe("buildRound", () => {
   it("returns exactly the requested number of questions", () => {

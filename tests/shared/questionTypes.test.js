@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { elements } from "../../src/shared/data/elements.js";
-import { poolForLevel } from "../../src/shared/pools.js";
+import { elements } from "../../shared/data/elements.js";
+import { poolForLevel } from "../../shared/pools.js";
 import {
   buildQuestion,
   identifySpecimen,
@@ -8,7 +8,7 @@ import {
   whatDidItDo,
   whatOrigin,
   whatReplacedIt,
-} from "../../src/shared/questionTypes.js";
+} from "../../shared/questionTypes.js";
 
 const easyPool = poolForLevel(elements, "easy");
 const hardPool = poolForLevel(elements, "hard");

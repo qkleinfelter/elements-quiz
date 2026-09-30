@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; connect-src 'self' ws: wss:; frame-src 'self'; object-src 'none'; base-uri 'none'"
+  />
+  <title>Host - Tag, You're Obsolete</title>
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <main id="app" aria-live="off"></main>
+  <script type="module">
+    import { initHostScreen } from "/src/live/host.js";
+    initHostScreen(document.getElementById("app"));
+  </script>
+</body>
+</html>

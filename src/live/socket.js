@@ -18,13 +18,23 @@ export class LiveSocket {
   #listeners = new Map(); // type -> Set<handler>
   #statusListeners = new Set();
   #clockOffsetMs = 0;
+  #onOpen = null;
 
   constructor(url) {
     this.#url = url;
   }
 
-  connect() {
+  /**
+   * Opens the connection. `onOpen`, if given, runs every time the socket finishes
+   * opening - both the initial connect AND every automatic reconnect - since the
+   * Durable Object treats each new WebSocket as unidentified until it sends
+   * host.hello/player.join/player.resume as its first message. Sending that message
+   * synchronously right after calling `connect()` (rather than from here) would
+   * silently drop it, because the socket is still in the CONNECTING state.
+   */
+  connect(onOpen) {
     this.#closedByUser = false;
+    this.#onOpen = onOpen;
     this.#openSocket();
   }
 
@@ -64,6 +74,7 @@ export class LiveSocket {
     ws.addEventListener("open", () => {
       this.#backoffMs = INITIAL_BACKOFF_MS;
       this.#setStatus("connected");
+      this.#onOpen?.();
     });
 
     ws.addEventListener("message", (event) => {

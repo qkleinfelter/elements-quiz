@@ -119,8 +119,7 @@ function renderGame(container, pin, hostToken) {
     status.textContent = `Error: ${code}`;
   });
 
-  socket.connect();
-  socket.send("host.hello", { hostToken });
+  socket.connect(() => socket.send("host.hello", { hostToken }));
 }
 
 function renderLobby(body, controls, players, count, socket) {

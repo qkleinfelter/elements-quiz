@@ -126,14 +126,15 @@ function renderGame(container, pin, nickname) {
     }
   });
 
-  socket.connect();
-  const saved = sessionStorage.getItem(sessionKey(pin));
-  if (saved) {
-    const { playerToken } = JSON.parse(saved);
-    socket.send("player.resume", { playerToken });
-  } else {
-    socket.send("player.join", { nickname });
-  }
+  socket.connect(() => {
+    const saved = sessionStorage.getItem(sessionKey(pin));
+    if (saved) {
+      const { playerToken } = JSON.parse(saved);
+      socket.send("player.resume", { playerToken });
+    } else {
+      socket.send("player.join", { nickname });
+    }
+  });
 }
 
 function renderPlayerQuestion(body, message, socket, onTick) {

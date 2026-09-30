@@ -497,6 +497,10 @@ export class GameRoom extends DurableObject {
         endsAt,
         serverNow: Date.now(),
       });
+    } else if (state.phase === PHASES.REVEAL) {
+      const question = state.questions[state.currentIndex];
+      const correctAnswer = question.mode === "choice" ? question.choices[question.answerIndex] : question.acceptedAnswers[0];
+      this.#send(ws, "reveal", { correctAnswer, explanation: question.explanation });
     } else if (state.phase === PHASES.LEADERBOARD) {
       this.#send(ws, "leaderboard", { top: this.#topPlayers(state, 5) });
     } else if (state.phase === PHASES.PODIUM) {

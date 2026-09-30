@@ -6,8 +6,8 @@
   "description": "Tag, You're Obsolete - a quiz on obscure and deprecated HTML elements, with Solo and Kahoot-style Live modes.",
   "scripts": {
     "dev": "cf dev",
-    "build": "vite build",
-    "deploy": "vite build && cf deploy",
+    "build": "cf build",
+    "deploy": "cf deploy",
     "test": "vitest run",
     "test:watch": "vitest"
   },
